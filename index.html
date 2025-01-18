@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <h1> Shopping Cart</h1>
+  <input type='text' id="TASK" placeholder='Enter a Item'>
+  <button id='additem' onclick='additem()'> Add Item </button>
+  <div class='BOX'>
+    <h1> Your Cart </h1>
+    <ul id='Itemlist'>
+    </ul>
+  </div>
+  <script>
+ function additem(){
+   let taskInput = document.getElementById('TASK');
+   let taskList = document.getElementById('Itemlist');
+   
+   if (taskInput.value !== '') {
+        let newTask = document.createElement('li');
+        newTask.textContent = taskInput.value;
+        
+      
+        
+        taskInput.value = '';
+      
+ let taskText = document.createElement('span');
+taskText.textContent = taskInput.value;
+        
+        let removebutton = document.createElement('button');
+        removebutton.textContent = 'Remove Item';
+        removebutton.className = 'remove';
+        
+        
+        
+        
+        
+          taskList.appendChild(newTask);
+        newTask.appendChild(removebutton);
+        
+        removebutton.onclick = function(){
+          taskList.removeChild(newTask);
+        }
+      }
+      else {
+        alert('Please enter a task');
+      }
+   
+ }   
+    
+    
+  </script>
+  
+  
+</body>
+</html>
